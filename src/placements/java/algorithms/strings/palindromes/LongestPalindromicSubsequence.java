@@ -13,9 +13,18 @@ public class LongestPalindromicSubsequence {
 
 	public static int getLongestPalindromicSubLength(String str) {
 		int [][]a=new int[str.length()][str.length()];
+		/*
+		 *  if we consider one character at a time, the length of lps for window
+		 *  of length 1 is 1 
+		 */
 		for(int i=0;i<str.length();i++) {
 			a[i][i]=1;
 		}
+		/*
+		 * l stands for window size and i and j are the edges of window
+		 * if 1st charcter of window matches the last character --> lps: longest lps from i+1 to j-1 + 2
+		 * else lps: max lps from i to j
+		 */
 		for(int l=2;l<=str.length();l++) {
 			for(int i=0;i<=str.length()-l;i++) {
 				int j=i+l-1;
